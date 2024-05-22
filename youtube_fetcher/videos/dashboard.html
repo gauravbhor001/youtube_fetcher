@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Video Dashboard</h1>
+        <form method="GET" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" value="{{ request.GET.q }}">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <table class="table table-striped mt-4">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Published Date</th>
+                    <th>Video ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for video in videos %}
+                <tr>
+                    <td>{{ video.title }}</td>
+                    <td>{{ video.description }}</td>
+                    <td>{{ video.published_datetime }}</td>
+                    <td>{{ video.video_id }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
